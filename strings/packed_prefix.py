@@ -39,7 +39,8 @@ def packed(strings):
                     index += 1
             pack = strings[i + 2:index-1]
             suffix = strings[index:]
-            strings = prefix + int(strings[i]) * packed(pack) + packed(suffix)
+            strings = ''.join((prefix, int(strings[i]) * packed(pack),
+                               packed(suffix)))
             break
     return strings
 
